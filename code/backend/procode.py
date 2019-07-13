@@ -1,4 +1,4 @@
-from code import (validAddress, validEmail, validPhone, validName)
+from code.backend.validation import validName, validPhone, validEmail, validAddress
 import datetime
 
 

@@ -1,4 +1,4 @@
-import validation as V
+from backend import validation as V
 import pymongo
 
 data = []
