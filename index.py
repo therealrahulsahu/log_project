@@ -12,9 +12,7 @@ from code import run
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        # MainWindow.setWindowTitle("LOG")
         MainWindow.setObjectName("MainWindow")
-        # MainWindow.setWindowTitle("LOG")
         MainWindow.resize(800, 450)
         MainWindow.setWindowIcon(QtGui.QIcon('images\\insert_table.ico'))
         MainWindow.setStyleSheet("background-color:rgb(255, 250, 220)")
