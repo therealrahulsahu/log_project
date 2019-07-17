@@ -164,8 +164,12 @@ class Ui_Form(object):
         self.pushbt_signup.setText(_translate("Form", "Sign Up"))
 
     def myaction(self, Form):
-        from code.images import im_insert_table
-        Form.setWindowIcon(im_insert_table)
+        from code.images import ic_insert_table
+        from code.images import im_enter
+        Form.setWindowIcon(ic_insert_table)
+
+        self.lb_.setPixmap(im_enter)    # object name of lb_ has to be changed
+
 
 if __name__ == "__main__":
     import sys

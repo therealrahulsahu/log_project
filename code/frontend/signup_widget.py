@@ -232,7 +232,7 @@ class Ui_Form(object):
         self.horizontalLayout_7.addItem(spacerItem25)
         self.le_email = QtWidgets.QLineEdit(Form)
         self.le_email.setStyleSheet("background-color:rgb(255, 255, 255);")
-        self.le_email.setMaxLength(32)
+        self.le_email.setMaxLength(50)
         self.le_email.setObjectName("le_email")
         self.horizontalLayout_7.addWidget(self.le_email)
         spacerItem26 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -388,10 +388,11 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+        self.myaction(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "User Signup"))
         self.label.setText(_translate("Form", "Sign Up"))
         self.label_2.setText(_translate("Form", "Name"))
         self.lb_nameico.setText(_translate("Form", "T"))
@@ -415,6 +416,18 @@ class Ui_Form(object):
         self.pushbt_reset.setText(_translate("Form", "Reset"))
         self.pushbt_submit.setText(_translate("Form", "Submit"))
 
+    def myaction(self, Form):
+        from code.images import im_enter, ic_insert_table
+        Form.setWindowIcon(ic_insert_table)
+        self.lb_nameico.setPixmap(im_enter)
+        self.lb_usernameico.setPixmap(im_enter)
+        self.lb_passwordico.setPixmap(im_enter)
+        self.lb_confirmpasswordico.setPixmap(im_enter)
+        self.lb_phoneico.setPixmap(im_enter)
+        self.lb_emailico.setPixmap(im_enter)
+        self.lb_recoveryhintico.setPixmap(im_enter)
+        self.lb_admindetailsico.setPixmap(im_enter)
+
 
 if __name__ == "__main__":
     import sys
@@ -424,4 +437,3 @@ if __name__ == "__main__":
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
-

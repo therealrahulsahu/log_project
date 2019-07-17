@@ -1,5 +1,11 @@
 from PyQt5.QtGui import QIcon
-im_correct = QIcon("code\\images\\correct.ico")
-im_enter = QIcon("code\\images\\enter.ico")
-im_insert_table = QIcon("code\\images\\insert_table.ico")
-im_wrong = QIcon("code\\images\\wrong.ico")
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QGuiApplication
+import sys
+temp = QGuiApplication(sys.argv)
+im_correct = QPixmap("code\\images\\correct.ico").scaled(30, 30)
+im_enter = QPixmap("code\\images\\enter.ico").scaled(40, 40)
+ic_insert_table = QIcon("code\\images\\insert_table.ico")
+im_wrong = QPixmap("code\\images\\wrong.ico").scaled(30, 30)
+im_loading = QPixmap('code\\images\\hourglass.ico').scaled(30, 30)
+# sys.exit(temp.exec_())

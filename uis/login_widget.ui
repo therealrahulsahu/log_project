@@ -227,7 +227,7 @@ font-weight:bold;</string>
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="lb_">
+      <widget class="QLabel" name="lb_loginico">
        <property name="text">
         <string>T</string>
        </property>

@@ -4,6 +4,21 @@ def validPatt(reg, string):
     return bool(reg.match(string))
 
 
+def validPassword(string):
+    reg = r'^[^\n\s\t\\]{8,}$'
+    return validPatt(reg, string)
+
+
+def validUsername(string):
+    reg = r'^[\w]{5,}$'
+    return validPatt(reg, string)
+
+
+def validRecoveryhint(string):
+    reg = r'^[\w\s]+$'
+    return validPatt(reg, string)
+
+
 def validEmail(string):
     reg = r'^(([\w]+((\.|\-)[\w]+)*)|(\".+\"))@'\
           '((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|'\
@@ -17,7 +32,7 @@ def validPhone(string):
 
 
 def validName(string):
-    reg = r'^[a-zA-Z\s]+$'
+    reg = r'^[a-zA-Z\s]{5,}$'
     return validPatt(reg, string)
 
 
