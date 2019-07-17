@@ -134,6 +134,8 @@ def run(MW):
             MW.lb_warning.setText('<h4>User Created</h4>')
         except ServerSelectionTimeoutError:
             MW.lb_warning.setText('Network Error')
+        finally:
+            myc.close()
 
     def submit():
         from pymongo.errors import ServerSelectionTimeoutError

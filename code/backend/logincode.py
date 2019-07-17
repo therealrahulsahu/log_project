@@ -16,25 +16,27 @@ def run(MW):
         query = {'username': in_username}
         try:
             result = myc.logdatabase.users.find_one(query)
-            MW.lb_.setPixmap(im_loading)
+            MW.lb_loginico.setPixmap(im_loading)
             if bool(result):
                 if result['password'] == in_password:
-                    MW.lb_.setPixmap(im_correct)    # object name of lb_ has to be changed
+                    MW.lb_loginico.setPixmap(im_correct)
                 else:
                     raise notFoundError
             else:
                 raise notFoundError
         except(notFoundError, ServerSelectionTimeoutError):
-            MW.lb_.setPixmap(im_wrong)  # object name of lb_ has to be changed
+            MW.lb_loginico.setPixmap(im_wrong)  # object name of lb_ has to be changed
         finally:
             myc.close()
 
-    def signup():
+    MW.pushbt_login.clicked.connect(login)
+"""    def signup():
         pass
 
     def forget():
         pass
+"""
 
-    MW.pushbt_login.clicked.connect(login)
-    MW.pushbt_signup.clicked.connect(signup)
-    MW.pushbt_forget.clicked.connect(forget)
+    #MW.pushbt_signup.clicked.connect(signup)
+    #MW.pushbt_forget.clicked.connect(forget)
+

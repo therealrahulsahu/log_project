@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(960, 540)
+        Form.resize(1120, 630)
         Form.setStyleSheet("background-color:#59BAEA;\n"
                            "/*background-color:#8860D0;*/\n"
                            "")
@@ -93,10 +93,10 @@ class Ui_Form(object):
         self.horizontalLayout_5.addWidget(self.pushbt_login)
         spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_5.addItem(spacerItem8)
-        self.lb_ = QtWidgets.QLabel(Form)
-        self.lb_.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.lb_.setObjectName("lb_")
-        self.horizontalLayout_5.addWidget(self.lb_)
+        self.lb_loginico = QtWidgets.QLabel(Form)
+        self.lb_loginico.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lb_loginico.setObjectName("lb_loginico")
+        self.horizontalLayout_5.addWidget(self.lb_loginico)
         spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_5.addItem(spacerItem9)
         self.horizontalLayout_5.setStretch(0, 22)
@@ -159,7 +159,7 @@ class Ui_Form(object):
         self.label.setText(_translate("Form", "Username"))
         self.label_2.setText(_translate("Form", "Password"))
         self.pushbt_login.setText(_translate("Form", "Login"))
-        self.lb_.setText(_translate("Form", "T"))
+        self.lb_loginico.setText(_translate("Form", "T"))
         self.pushbt_forget.setText(_translate("Form", "Forget Password or Username"))
         self.pushbt_signup.setText(_translate("Form", "Sign Up"))
 
@@ -168,7 +168,7 @@ class Ui_Form(object):
         from code.images import im_enter
         Form.setWindowIcon(ic_insert_table)
 
-        self.lb_.setPixmap(im_enter)    # object name of lb_ has to be changed
+        self.lb_loginico.setPixmap(im_enter)    # object name of lb_ has to be changed
 
 
 if __name__ == "__main__":
