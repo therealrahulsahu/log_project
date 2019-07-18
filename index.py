@@ -1,7 +1,8 @@
-from PyQt5 import QtWidgets, QtGui
-from code.frontend import login_widget, signup_widget
-from code.backend import logincode, signupcode
+from PyQt5 import QtWidgets
+from code.frontend import login_widget, signup_widget, forget_widget
+from code.backend import logincode, signupcode, forgetcode
 from code.images import ic_insert_table
+import sys
 
 
 class MyWindow(QtWidgets.QMainWindow):
@@ -13,34 +14,46 @@ class MyWindow(QtWidgets.QMainWindow):
 
         self.start()
 
+    def forget_wid(self):
+        form_forget = QtWidgets.QWidget()
+        forget_ui = forget_widget.Ui_Form()
+        forget_ui.setupUi(form_forget)
+        forgetcode.run(forget_ui, self)
+        self.setCentralWidget(form_forget)
+        forget_ui.pushbt_back.clicked.connect(self.login_wid)
+
     def signup_wid(self):
-        form = QtWidgets.QWidget()
+        form_signup = QtWidgets.QWidget()
         signup_ui = signup_widget.Ui_Form()
-        signup_ui.setupUi(form)
-        signupcode.run(signup_ui)
-        self.setCentralWidget(form)
+        signup_ui.setupUi(form_signup)
+        signupcode.run(signup_ui, self)
+        self.setCentralWidget(form_signup)
+        signup_ui.pushbt_back.clicked.connect(self.login_wid)
 
     def login_wid(self):
-        form = QtWidgets.QWidget()
+        form_login = QtWidgets.QWidget()
         login_ui = login_widget.Ui_Form()
-        login_ui.setupUi(form)
-        logincode.run(login_ui)
-        self.setCentralWidget(form)
+        login_ui.setupUi(form_login)
+        logincode.run(login_ui, self)
+        self.setCentralWidget(form_login)
 
         login_ui.pushbt_signup.clicked.connect(self.signup_wid)
+        login_ui.pushbt_forget.clicked.connect(self.forget_wid)
 
     def start(self):
         self.login_wid()
 
 
-
-
-
-if __name__ == "__main__":
-    import sys
+if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
 
-    MW = MyWindow()
-    MW.show()
+    win = MyWindow()
+    win.show()
 
     sys.exit(app.exec_())
+
+
+
+
+
+

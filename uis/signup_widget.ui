@@ -31,7 +31,23 @@
     </spacer>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="10,5,10">
+    <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="3,7,5,10">
+     <item>
+      <widget class="QPushButton" name="pushbt_back">
+       <property name="styleSheet">
+        <string notr="true">background-color: #f4511e;
+color: white;
+padding: 16px 32px;
+text-align: center;
+font-size: 16px;
+margin: 4px 2px;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>Back</string>
+       </property>
+      </widget>
+     </item>
      <item>
       <spacer name="horizontalSpacer_2">
        <property name="orientation">

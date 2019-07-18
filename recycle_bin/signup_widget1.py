@@ -8,7 +8,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -20,16 +19,6 @@ class Ui_Form(object):
         self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.pushbt_back = QtWidgets.QPushButton(Form)
-        self.pushbt_back.setStyleSheet("background-color: #f4511e;\n"
-"color: white;\n"
-"padding: 16px 32px;\n"
-"text-align: center;\n"
-"font-size: 16px;\n"
-"margin: 4px 2px;\n"
-"font-weight:bold;")
-        self.pushbt_back.setObjectName("pushbt_back")
-        self.horizontalLayout_5.addWidget(self.pushbt_back)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_5.addItem(spacerItem1)
         self.label = QtWidgets.QLabel(Form)
@@ -46,10 +35,9 @@ class Ui_Form(object):
         self.horizontalLayout_5.addWidget(self.label)
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_5.addItem(spacerItem2)
-        self.horizontalLayout_5.setStretch(0, 3)
-        self.horizontalLayout_5.setStretch(1, 7)
-        self.horizontalLayout_5.setStretch(2, 5)
-        self.horizontalLayout_5.setStretch(3, 10)
+        self.horizontalLayout_5.setStretch(0, 10)
+        self.horizontalLayout_5.setStretch(1, 5)
+        self.horizontalLayout_5.setStretch(2, 10)
         self.verticalLayout.addLayout(self.horizontalLayout_5)
         spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem3)
@@ -400,13 +388,11 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
-		
         self.myaction(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.pushbt_back.setText(_translate("Form", "Back"))
+        Form.setWindowTitle(_translate("Form", "User Signup"))
         self.label.setText(_translate("Form", "Sign Up"))
         self.label_2.setText(_translate("Form", "Name"))
         self.lb_nameico.setText(_translate("Form", "T"))
@@ -429,9 +415,10 @@ class Ui_Form(object):
         self.lb_warning.setText(_translate("Form", "Enter Details"))
         self.pushbt_reset.setText(_translate("Form", "Reset"))
         self.pushbt_submit.setText(_translate("Form", "Submit"))
-	
+
     def myaction(self, Form):
-        from code.images import im_enter
+        from code.images import im_enter, ic_insert_table
+        Form.setWindowIcon(ic_insert_table)
         self.lb_nameico.setPixmap(im_enter)
         self.lb_usernameico.setPixmap(im_enter)
         self.lb_passwordico.setPixmap(im_enter)
@@ -441,7 +428,7 @@ class Ui_Form(object):
         self.lb_recoveryhintico.setPixmap(im_enter)
         self.lb_admindetailsico.setPixmap(im_enter)
 
-        
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -450,4 +437,3 @@ if __name__ == "__main__":
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
-
