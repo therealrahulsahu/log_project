@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
 from code.frontend import login_widget, signup_widget, forget_widget
-from code.backend import logincode, signupcode, forgetcode
+from code2.backend import signupcode, forgetcode, logincode
 from code.images import ic_insert_table
 import sys
 

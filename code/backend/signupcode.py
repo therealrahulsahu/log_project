@@ -1,4 +1,4 @@
-from code.backend import validation
+from code2.backend import validation
 from code.images import im_correct, im_wrong
 
 
