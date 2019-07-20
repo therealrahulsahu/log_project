@@ -12,7 +12,21 @@ class MyWindow(QtWidgets.QMainWindow):
         self.setWindowTitle('Entry LOG')
         self.setWindowIcon(ic_insert_table)
 
+        self.logged_user = ''
+
+        self.mn_bar()
         self.start()
+
+    def mn_bar(self):
+        self.menu_bar = self.menuBar()
+
+        quit_action = QtWidgets.QAction('&Quit Session', self)
+        quit_action.setShortcut('Ctrl+Q')
+        quit_action.triggered.connect(self.login_wid)
+
+        self.file_menu = self.menu_bar.addMenu('&File')
+        self.file_menu.addAction(quit_action)
+        self.file_menu.addAction(quit_action)
 
     def forget_wid(self):
         form_forget = QtWidgets.QWidget()
@@ -30,7 +44,13 @@ class MyWindow(QtWidgets.QMainWindow):
         self.setCentralWidget(form_signup)
         signup_ui.pushbt_back.clicked.connect(self.login_wid)
 
+    def feature_wid(self):
+        pass
+
     def login_wid(self):
+        self.menu_bar.setVisible(False)
+        self.logged_user = ''
+
         form_login = QtWidgets.QWidget()
         login_ui = login_widget.Ui_Form()
         login_ui.setupUi(form_login)
