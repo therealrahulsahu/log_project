@@ -3,7 +3,6 @@ from code.frontend import (login_widget, signup_widget, forget_widget, entry_wid
 from code.backend import (signupcode, forgetcode, logincode, entrycode, exitcode, showcode)
 from code.images import ic_insert_table
 from code.mongo_conn import myc
-from code.backend import errors
 import sys
 
 
@@ -27,7 +26,6 @@ class MyWindow(QtWidgets.QMainWindow):
         quit_action.triggered.connect(self.login_wid)
 
         self.file_menu = self.menu_bar.addMenu('&File')
-        self.file_menu.addAction(quit_action)
         self.file_menu.addAction(quit_action)
 
     def forget_wid(self):
@@ -101,9 +99,3 @@ if __name__ == '__main__':
     win.show()
 
     sys.exit(app.exec_())
-
-
-
-
-
-

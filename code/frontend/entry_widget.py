@@ -233,6 +233,11 @@ class Ui_Form(object):
         self.lb_addressico.setPixmap(im_enter)
         self.lb_phoneico.setPixmap(im_enter)
 
+        self.le_phone.setMaxLength(10)
+
+        onlyint = QtGui.QIntValidator()
+        self.le_phone.setValidator(onlyint)
+
 
 if __name__ == "__main__":
     import sys

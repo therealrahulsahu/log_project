@@ -45,3 +45,8 @@ class WrongEmailError(Exception):
 
     def __str__(self):
         return "Wrong Email or Recovery Hint"
+
+
+class PersonAlreadyInError(Exception):
+    def __init__(self):
+        pass
