@@ -1,20 +1,13 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'entry_widget.ui'
-#
-# Created by: PyQt5 UI code generator 5.9.2
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(1120, 630)
         Form.setStyleSheet("/*background-color:#59BAEA;*/\n"
-"background-color:#8860D0;\n"
-"")
+                           "background-color:#8860D0;\n"
+                           "")
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
@@ -66,7 +59,7 @@ class Ui_Form(object):
         self.gridLayout.addWidget(self.label_6, 7, 1, 1, 1)
         self.le_email = QtWidgets.QLineEdit(Form)
         self.le_email.setStyleSheet("background-color:white;\n"
-"")
+                                    "")
         self.le_email.setObjectName("le_email")
         self.gridLayout.addWidget(self.le_email, 3, 3, 1, 1)
         self.le_address = QtWidgets.QLineEdit(Form)
@@ -174,26 +167,26 @@ class Ui_Form(object):
         self.horizontalLayout.addItem(spacerItem26)
         self.pushbt_reset = QtWidgets.QPushButton(Form)
         self.pushbt_reset.setStyleSheet("/*background-color: #f4511e;*/\n"
-"background-color: rgb(255, 104, 29);\n"
-"color: white;\n"
-"padding: 16px 32px;\n"
-"text-align: center;\n"
-"font-size: 16px;\n"
-"margin: 4px 2px;\n"
-"font-weight:bold;")
+                                        "background-color: rgb(255, 104, 29);\n"
+                                        "color: white;\n"
+                                        "padding: 16px 32px;\n"
+                                        "text-align: center;\n"
+                                        "font-size: 16px;\n"
+                                        "margin: 4px 2px;\n"
+                                        "font-weight:bold;")
         self.pushbt_reset.setObjectName("pushbt_reset")
         self.horizontalLayout.addWidget(self.pushbt_reset)
         spacerItem27 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem27)
         self.pushbt_okay = QtWidgets.QPushButton(Form)
         self.pushbt_okay.setStyleSheet("/*background-color: #f4511e;*/\n"
-"background-color: rgb(90, 255, 129);\n"
-"color: white;\n"
-"padding: 16px 32px;\n"
-"text-align: center;\n"
-"font-size: 16px;\n"
-"margin: 4px 2px;\n"
-"font-weight:bold;")
+                                       "background-color: rgb(90, 255, 129);\n"
+                                       "color: white;\n"
+                                       "padding: 16px 32px;\n"
+                                       "text-align: center;\n"
+                                       "font-size: 16px;\n"
+                                       "margin: 4px 2px;\n"
+                                       "font-weight:bold;")
         self.pushbt_okay.setObjectName("pushbt_okay")
         self.horizontalLayout.addWidget(self.pushbt_okay)
         spacerItem28 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -215,6 +208,8 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
+        self.myaction(Form)
+
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
@@ -230,6 +225,13 @@ class Ui_Form(object):
         self.lb_warning.setText(_translate("Form", "Enter Details"))
         self.pushbt_reset.setText(_translate("Form", "Reset"))
         self.pushbt_okay.setText(_translate("Form", "Okay"))
+
+    def myaction(self, Form):
+        from code.images import im_enter
+        self.lb_nameico.setPixmap(im_enter)
+        self.lb_emailico.setPixmap(im_enter)
+        self.lb_addressico.setPixmap(im_enter)
+        self.lb_phoneico.setPixmap(im_enter)
 
 
 if __name__ == "__main__":

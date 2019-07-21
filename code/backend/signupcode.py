@@ -1,29 +1,5 @@
-from code.backend import validation
+from code.backend import validation, errors
 from code.images import im_correct, im_wrong
-
-
-class NotFoundError(Exception):
-    def __init__(self):
-        pass
-
-
-class WrongDetailsError(Exception):
-    def __init__(self):
-        pass
-
-
-class WrongPasswordError(Exception):
-    def __init__(self):
-        pass
-
-
-class AlreadyExistsError(Exception):
-    def __init__(self,mess=""):
-        self.mess = mess
-
-    def __str__(self):
-        return '{}'.format(self.mess)
-
 
 b_name, b_username, b_password, b_confirmpassword, b_phone, b_email, b_recoveryhint = [False for i in range(7)]
 
@@ -129,7 +105,7 @@ def run(curr_wid,MW):
 
         query1 = {'username': in_username}
         if bool(myc.find_one(query1)):
-            raise AlreadyExistsError('Username already exists ')
+            raise errors.AlreadyExistsError('Username already exists ')
 
         data = {'name': in_name,
                 'username': in_username,
@@ -140,6 +116,8 @@ def run(curr_wid,MW):
 
         myc.insert_one(data)
         curr_wid.lb_warning.setText('<h4>User Created</h4>')
+        reset()
+        MW.login_wid()
 
     def submit():
         from pymongo.errors import ServerSelectionTimeoutError
@@ -147,7 +125,7 @@ def run(curr_wid,MW):
         in_adminpassword = curr_wid.le_adminpassword.text().strip()
         query = {'username': in_adminusername}
         try:
-            from code.mongo_conn import myc_localhost as myc
+            myc = MW.myc
             result = myc.logdatabase.admin.find_one(query)
             if bool(result):
                 if result['password'] == in_adminpassword:
@@ -155,26 +133,24 @@ def run(curr_wid,MW):
                     if all([b_name, b_username, b_password, b_confirmpassword, b_phone, b_email, b_recoveryhint]):
                         collect(myc.logdatabase.users)
                     else:
-                        raise WrongDetailsError
+                        raise errors.WrongDetailsError
                 else:
-                    raise WrongPasswordError
+                    raise errors.WrongPasswordError
             else:
-                raise NotFoundError
+                raise errors.NotFoundError
 
         except ServerSelectionTimeoutError:
             curr_wid.lb_warning.setText('Network Error')
-        except WrongPasswordError:
+        except errors.WrongPasswordError:
             curr_wid.lb_warning.setText('Invalid Admin Password')
             curr_wid.lb_admindetailsico.setPixmap(im_wrong)
-        except NotFoundError:
+        except errors.NotFoundError:
             curr_wid.lb_warning.setText('Invalid Admin Username')
             curr_wid.lb_admindetailsico.setPixmap(im_wrong)
-        except WrongDetailsError:
+        except errors.WrongDetailsError:
             curr_wid.lb_warning.setText('Wrong Details')
-        except AlreadyExistsError as err:
+        except errors.AlreadyExistsError as err:
             curr_wid.lb_warning.setText(str(err))
-        finally:
-            myc.close()
 
     curr_wid.le_name.textChanged.connect(fun_name)
     curr_wid.le_username.textChanged.connect(fun_username)

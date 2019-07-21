@@ -13,8 +13,8 @@ class Ui_Form(object):
         Form.setObjectName("Form")
         Form.resize(1120, 630)
         Form.setStyleSheet("/*background-color:#59BAEA;*/\n"
-"background-color:#8860D0;\n"
-"")
+                           "background-color:#8860D0;\n"
+                           "")
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -54,7 +54,7 @@ class Ui_Form(object):
         self.horizontalLayout_2.addItem(spacerItem4)
         self.le_name = QtWidgets.QLineEdit(Form)
         self.le_name.setStyleSheet("background-color:white;\n"
-"")
+                                   "")
         self.le_name.setMaxLength(32)
         self.le_name.setObjectName("le_name")
         self.horizontalLayout_2.addWidget(self.le_name)
@@ -62,13 +62,13 @@ class Ui_Form(object):
         self.horizontalLayout_2.addItem(spacerItem5)
         self.pushbt_fetch = QtWidgets.QPushButton(Form)
         self.pushbt_fetch.setStyleSheet("/*background-color: #f4511e;*/\n"
-"background-color: rgb(90, 255, 129);\n"
-"color: white;\n"
-"padding: 16px 32px;\n"
-"text-align: center;\n"
-"font-size: 16px;\n"
-"margin: 4px 2px;\n"
-"font-weight:bold;")
+                                        "background-color: rgb(90, 255, 129);\n"
+                                        "color: white;\n"
+                                        "padding: 16px 32px;\n"
+                                        "text-align: center;\n"
+                                        "font-size: 16px;\n"
+                                        "margin: 4px 2px;\n"
+                                        "font-weight:bold;")
         self.pushbt_fetch.setObjectName("pushbt_fetch")
         self.horizontalLayout_2.addWidget(self.pushbt_fetch)
         spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -112,13 +112,13 @@ class Ui_Form(object):
         self.horizontalLayout_5.addItem(spacerItem12)
         self.pushbt_mark = QtWidgets.QPushButton(Form)
         self.pushbt_mark.setStyleSheet("/*background-color: #f4511e;*/\n"
-"background-color: rgb(90, 255, 129);\n"
-"color: white;\n"
-"padding: 16px 32px;\n"
-"text-align: center;\n"
-"font-size: 16px;\n"
-"margin: 4px 2px;\n"
-"font-weight:bold;")
+                                       "background-color: rgb(90, 255, 129);\n"
+                                       "color: white;\n"
+                                       "padding: 16px 32px;\n"
+                                       "text-align: center;\n"
+                                       "font-size: 16px;\n"
+                                       "margin: 4px 2px;\n"
+                                       "font-weight:bold;")
         self.pushbt_mark.setObjectName("pushbt_mark")
         self.horizontalLayout_5.addWidget(self.pushbt_mark)
         spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -140,6 +140,8 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
+        self.myaction(Form)
+
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
@@ -148,6 +150,9 @@ class Ui_Form(object):
         self.pushbt_fetch.setText(_translate("Form", "Fetch"))
         self.lb_warning.setText(_translate("Form", "Enter Details"))
         self.pushbt_mark.setText(_translate("Form", "Mark Exit"))
+
+    def myaction(self, Form):
+        pass
 
 
 if __name__ == "__main__":

@@ -13,8 +13,8 @@ class Ui_Form(object):
         Form.setObjectName("Form")
         Form.resize(1120, 630)
         Form.setStyleSheet("/*background-color:#59BAEA;*/\n"
-"background-color:#8860D0;\n"
-"")
+                           "background-color:#8860D0;\n"
+                           "")
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.gridLayout = QtWidgets.QGridLayout()
@@ -23,13 +23,13 @@ class Ui_Form(object):
         self.gridLayout.addItem(spacerItem, 1, 2, 1, 1)
         self.pushbt_fetch = QtWidgets.QPushButton(Form)
         self.pushbt_fetch.setStyleSheet("/*background-color: #f4511e;*/\n"
-"background-color: rgb(90, 255, 129);\n"
-"color: white;\n"
-"padding: 16px 32px;\n"
-"text-align: center;\n"
-"font-size: 16px;\n"
-"margin: 4px 2px;\n"
-"font-weight:bold;")
+                                        "background-color: rgb(90, 255, 129);\n"
+                                        "color: white;\n"
+                                        "padding: 16px 32px;\n"
+                                        "text-align: center;\n"
+                                        "font-size: 16px;\n"
+                                        "margin: 4px 2px;\n"
+                                        "font-weight:bold;")
         self.pushbt_fetch.setObjectName("pushbt_fetch")
         self.gridLayout.addWidget(self.pushbt_fetch, 5, 4, 1, 1)
         self.le_nosdoc = QtWidgets.QLineEdit(Form)
@@ -42,7 +42,7 @@ class Ui_Form(object):
         self.gridLayout.addItem(spacerItem2, 1, 4, 1, 1)
         self.le_name = QtWidgets.QLineEdit(Form)
         self.le_name.setStyleSheet("background-color:white;\n"
-"")
+                                   "")
         self.le_name.setObjectName("le_name")
         self.gridLayout.addWidget(self.le_name, 1, 3, 1, 1)
         self.label = QtWidgets.QLabel(Form)
@@ -98,12 +98,19 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
+        self.myaction(Form)
+
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.pushbt_fetch.setText(_translate("Form", "Fetch Data"))
         self.label.setText(_translate("Form", "Name (or Name\'s RegEx)"))
         self.label_2.setText(_translate("Form", "No. of Document "))
+
+    def myaction(self, Form):
+        onlyInt = QtGui.QIntValidator()
+        self.le_nosdoc.setValidator(onlyInt)
+        self.le_nosdoc.setText('5')
 
 
 if __name__ == "__main__":

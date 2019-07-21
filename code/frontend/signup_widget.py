@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'signup_widget.ui'
-#
-# Created by: PyQt5 UI code generator 5.9.2
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -22,12 +14,12 @@ class Ui_Form(object):
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.pushbt_back = QtWidgets.QPushButton(Form)
         self.pushbt_back.setStyleSheet("background-color: #f4511e;\n"
-"color: white;\n"
-"padding: 16px 32px;\n"
-"text-align: center;\n"
-"font-size: 16px;\n"
-"margin: 4px 2px;\n"
-"font-weight:bold;")
+                                       "color: white;\n"
+                                       "padding: 16px 32px;\n"
+                                       "text-align: center;\n"
+                                       "font-size: 16px;\n"
+                                       "margin: 4px 2px;\n"
+                                       "font-weight:bold;")
         self.pushbt_back.setObjectName("pushbt_back")
         self.horizontalLayout_5.addWidget(self.pushbt_back)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -357,22 +349,22 @@ class Ui_Form(object):
         self.horizontalLayout_12.addItem(spacerItem36)
         self.pushbt_reset = QtWidgets.QPushButton(Form)
         self.pushbt_reset.setStyleSheet("background-color: #f4511e;\n"
-"color: white;\n"
-"padding: 16px 32px;\n"
-"text-align: center;\n"
-"font-size: 16px;\n"
-"margin: 4px 2px;\n"
-"font-weight:bold;")
+                                        "color: white;\n"
+                                        "padding: 16px 32px;\n"
+                                        "text-align: center;\n"
+                                        "font-size: 16px;\n"
+                                        "margin: 4px 2px;\n"
+                                        "font-weight:bold;")
         self.pushbt_reset.setObjectName("pushbt_reset")
         self.horizontalLayout_12.addWidget(self.pushbt_reset)
         self.pushbt_submit = QtWidgets.QPushButton(Form)
         self.pushbt_submit.setStyleSheet("background-color: #f4511e;\n"
-"color: white;\n"
-"padding: 16px 32px;\n"
-"text-align: center;\n"
-"font-size: 16px;\n"
-"margin: 4px 2px;\n"
-"font-weight:bold;")
+                                         "color: white;\n"
+                                         "padding: 16px 32px;\n"
+                                         "text-align: center;\n"
+                                         "font-size: 16px;\n"
+                                         "margin: 4px 2px;\n"
+                                         "font-weight:bold;")
         self.pushbt_submit.setObjectName("pushbt_submit")
         self.horizontalLayout_12.addWidget(self.pushbt_submit)
         spacerItem37 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -400,7 +392,7 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
-		
+
         self.myaction(Form)
 
     def retranslateUi(self, Form):
@@ -429,7 +421,7 @@ class Ui_Form(object):
         self.lb_warning.setText(_translate("Form", "Enter Details"))
         self.pushbt_reset.setText(_translate("Form", "Reset"))
         self.pushbt_submit.setText(_translate("Form", "Submit"))
-	
+
     def myaction(self, Form):
         from code.images import im_enter
         self.lb_nameico.setPixmap(im_enter)
@@ -441,7 +433,10 @@ class Ui_Form(object):
         self.lb_recoveryhintico.setPixmap(im_enter)
         self.lb_admindetailsico.setPixmap(im_enter)
 
-        
+        onlyint = QtGui.QIntValidator()
+        self.le_phone.setValidator(onlyint)
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
