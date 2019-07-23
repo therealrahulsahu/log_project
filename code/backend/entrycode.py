@@ -53,16 +53,18 @@ def run(curr_wid, MW):
             curr_wid.lb_addressico.setPixmap(images.im_wrong)
 
     def okay():
-        name = curr_wid.le_name.text().strip()
+        name = curr_wid.le_name.text().strip().lower()
         email = curr_wid.le_email.text().strip()
         phone = curr_wid.le_phone.text().strip()
         address = curr_wid.le_address.text().strip()
         entry_time = datetime.now()
         exit_time = datetime.now()
 
-        search_data = {'email': email,
-                'phone': phone,
+        search_data1 = {'email': email,
                 'in_status': True}
+        search_data2 = {'phone': phone,
+                'in_status': True
+        }
         data = {'name': name,
                 'email': email,
                 'phone': phone,
@@ -76,7 +78,7 @@ def run(curr_wid, MW):
         myc = eval('myc.{}_entry'.format(MW.logged_user))
         try:
             if all([name_bool, phone_bool, email_bool, address_bool]):
-                found_data = myc.find_one(search_data)
+                found_data = myc.find_one(search_data1) or myc.find_one(search_data2)
                 if found_data:
                     raise errors.PersonAlreadyInError
                 else:

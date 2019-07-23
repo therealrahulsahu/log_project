@@ -18,10 +18,10 @@ def run(curr_wid, MW):
                     MW.logged_user = '{}'.format(result['username'])
                     MW.feature_wid()
                 else:
-                    raise errors.notFoundError
+                    raise errors.NotFoundError
             else:
-                raise errors.notFoundError
-        except(errors.notFoundError, ServerSelectionTimeoutError):
+                raise errors.NotFoundError
+        except(errors.NotFoundError, ServerSelectionTimeoutError):
             curr_wid.lb_loginico.setPixmap(im_wrong)
 
     curr_wid.pushbt_login.clicked.connect(login)

@@ -3,11 +3,6 @@ class BackToFeatureError(Exception):
         pass
 
 
-class notFoundError(Exception):
-    def __init__(self):
-        pass
-
-
 class NotFoundError(Exception):
     def __init__(self):
         pass
