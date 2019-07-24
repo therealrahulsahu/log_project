@@ -227,8 +227,8 @@ class Ui_Form(object):
         self.pushbt_okay.setText(_translate("Form", "Okay"))
 
     def myaction(self, Form):
-
-        onlyint = QtGui.QIntValidator()
+        self.le_phone.setMaxLength(10)
+        onlyint = QtGui.QDoubleValidator()
         self.le_phone.setValidator(onlyint)
 
 
