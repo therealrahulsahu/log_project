@@ -227,13 +227,6 @@ class Ui_Form(object):
         self.pushbt_okay.setText(_translate("Form", "Okay"))
 
     def myaction(self, Form):
-        from code.images import im_enter
-        self.lb_nameico.setPixmap(im_enter)
-        self.lb_emailico.setPixmap(im_enter)
-        self.lb_addressico.setPixmap(im_enter)
-        self.lb_phoneico.setPixmap(im_enter)
-
-        self.le_phone.setMaxLength(10)
 
         onlyint = QtGui.QIntValidator()
         self.le_phone.setValidator(onlyint)

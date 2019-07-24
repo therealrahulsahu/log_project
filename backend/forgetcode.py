@@ -1,7 +1,10 @@
-from code.backend import errors
+from errors import WrongEmailError, WrongUsernameError
+
+from images import im_correct, im_enter, im_wrong
 
 
 def run(curr_wid, MW):
+    curr_wid.lb_usernameico.setPixmap(im_enter)
     def fetch():
         username = curr_wid.le_username.text().strip()
         email = curr_wid.le_email.text().strip()
@@ -16,19 +19,17 @@ def run(curr_wid, MW):
                 if result['email'] == email and result['recoveryhint'] == recoveryhint:
                     curr_wid.lb_warning.setText('Password :<h4>{}</h4>'.format(result['password']))
                 else:
-                    raise errors.WrongEmailError
+                    raise WrongEmailError
             else:
-                raise errors.WrongUsernameError
+                raise WrongUsernameError
 
         except ServerSelectionTimeoutError:
             curr_wid.lb_warning.setText('Network Error')
-        except errors.WrongEmailError as e:
+        except WrongEmailError as e:
             curr_wid.lb_warning.setText(str(e))
-            from code.images import im_correct
             curr_wid.lb_usernameico.setPixmap(im_correct)
-        except errors.WrongUsernameError as e:
+        except WrongUsernameError as e:
             curr_wid.lb_warning.setText(str(e))
-            from code.images import im_wrong
             curr_wid.lb_usernameico.setPixmap(im_wrong)
 
     curr_wid.pushbt_fetch.clicked.connect(fetch)

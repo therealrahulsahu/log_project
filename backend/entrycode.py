@@ -1,12 +1,13 @@
 from datetime import datetime
-from code.backend import errors
-from code.backend import validation
-from code import images
+from images import im_enter, im_wrong, im_correct
+from errors import PersonAlreadyInError, WrongDetailsError
+from .validation import validName, validAddress, validPhone, validEmail
 
 name_bool, email_bool, phone_bool, address_bool = [False for i in range(4)]
 
 
 def run(curr_wid, MW):
+
     def reset():
         curr_wid.le_name.setText('')
         curr_wid.le_email.setText('')
@@ -15,42 +16,44 @@ def run(curr_wid, MW):
 
         curr_wid.lb_warning.setText('Enter Details')
 
-        curr_wid.lb_nameico.setPixmap(images.im_enter)
-        curr_wid.lb_phoneico.setPixmap(images.im_enter)
-        curr_wid.lb_emailico.setPixmap(images.im_enter)
-        curr_wid.lb_addressico.setPixmap(images.im_enter)
+        curr_wid.lb_nameico.setPixmap(im_enter)
+        curr_wid.lb_phoneico.setPixmap(im_enter)
+        curr_wid.lb_emailico.setPixmap(im_enter)
+        curr_wid.lb_addressico.setPixmap(im_enter)
+
+    reset()
 
     def fun_name():
         global name_bool
-        name_bool = validation.validName(curr_wid.le_name.text().strip())
+        name_bool = validName(curr_wid.le_name.text().strip())
         if name_bool:
-            curr_wid.lb_nameico.setPixmap(images.im_correct)
+            curr_wid.lb_nameico.setPixmap(im_correct)
         else:
-            curr_wid.lb_nameico.setPixmap(images.im_wrong)
+            curr_wid.lb_nameico.setPixmap(im_wrong)
 
     def fun_email():
         global email_bool
-        email_bool = validation.validEmail(curr_wid.le_email.text().strip())
+        email_bool = validEmail(curr_wid.le_email.text().strip())
         if email_bool:
-            curr_wid.lb_emailico.setPixmap(images.im_correct)
+            curr_wid.lb_emailico.setPixmap(im_correct)
         else:
-            curr_wid.lb_emailico.setPixmap(images.im_wrong)
+            curr_wid.lb_emailico.setPixmap(im_wrong)
 
     def fun_phone():
         global phone_bool
-        phone_bool = validation.validPhone(curr_wid.le_phone.text().strip())
+        phone_bool = validPhone(curr_wid.le_phone.text().strip())
         if phone_bool:
-            curr_wid.lb_phoneico.setPixmap(images.im_correct)
+            curr_wid.lb_phoneico.setPixmap(im_correct)
         else:
-            curr_wid.lb_phoneico.setPixmap(images.im_wrong)
+            curr_wid.lb_phoneico.setPixmap(im_wrong)
 
     def fun_address():
         global address_bool
-        address_bool = validation.validAddress(curr_wid.le_address.text().strip())
+        address_bool = validAddress(curr_wid.le_address.text().strip())
         if address_bool:
-            curr_wid.lb_addressico.setPixmap(images.im_correct)
+            curr_wid.lb_addressico.setPixmap(im_correct)
         else:
-            curr_wid.lb_addressico.setPixmap(images.im_wrong)
+            curr_wid.lb_addressico.setPixmap(im_wrong)
 
     def okay():
         name = curr_wid.le_name.text().strip().lower()
@@ -80,17 +83,17 @@ def run(curr_wid, MW):
             if all([name_bool, phone_bool, email_bool, address_bool]):
                 found_data = myc.find_one(search_data1) or myc.find_one(search_data2)
                 if found_data:
-                    raise errors.PersonAlreadyInError
+                    raise PersonAlreadyInError
                 else:
                     var = myc.insert_one(data)
                     curr_wid.lb_warning.setText('Entry Done')
             else:
-                raise errors.WrongDetailsError
+                raise WrongDetailsError
         except ServerSelectionTimeoutError:
             curr_wid.lb_warning.setText('Network Error')
-        except errors.PersonAlreadyInError:
+        except PersonAlreadyInError:
             curr_wid.lb_warning.setText('Person Already Inside')
-        except errors.WrongDetailsError:
+        except WrongDetailsError:
             curr_wid.lb_warning.setText('Wrong Details')
 
     curr_wid.le_name.textChanged.connect(fun_name)

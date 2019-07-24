@@ -1,6 +1,6 @@
-from code.backend import validation, errors
-from code.images import im_correct, im_wrong
-
+from errors import AlreadyExistsError, WrongDetailsError, WrongPasswordError ,NotFoundError
+from images import im_correct, im_wrong, im_enter
+from .validation import validName, validPhone, validEmail, validUsername, validPassword, validRecoveryhint
 b_name, b_username, b_password, b_confirmpassword, b_phone, b_email, b_recoveryhint = [False for i in range(7)]
 
 
@@ -9,7 +9,7 @@ def run(curr_wid,MW):
     def fun_name():
         string = curr_wid.le_name.text().strip()
         global b_name
-        b_name = validation.validName(string)
+        b_name = validName(string)
         if b_name:
             curr_wid.lb_nameico.setPixmap(im_correct)
         else:
@@ -18,7 +18,7 @@ def run(curr_wid,MW):
     def fun_username():
         string = curr_wid.le_username.text().strip()
         global b_username
-        b_username = validation.validUsername(string)
+        b_username = validUsername(string)
         if b_username:
             curr_wid.lb_usernameico.setPixmap(im_correct)
         else:
@@ -27,7 +27,7 @@ def run(curr_wid,MW):
     def fun_password():
         string = curr_wid.le_password.text().strip()
         global b_password
-        b_password = validation.validPassword(string)
+        b_password = validPassword(string)
         if b_password:
             curr_wid.lb_passwordico.setPixmap(im_correct)
         else:
@@ -37,7 +37,7 @@ def run(curr_wid,MW):
         string = curr_wid.le_confirmpassword.text().strip()
         string_prev = curr_wid.le_password.text().strip()
         global b_confirmpassword
-        b_confirmpassword = validation.validPassword(string)
+        b_confirmpassword = validPassword(string)
         if b_confirmpassword:
             if string == string_prev:
                 curr_wid.lb_confirmpasswordico.setPixmap(im_correct)
@@ -50,7 +50,7 @@ def run(curr_wid,MW):
     def fun_phone():
         string = curr_wid.le_phone.text().strip()
         global b_phone
-        b_phone= validation.validPhone(string)
+        b_phone = validPhone(string)
         if b_phone:
             curr_wid.lb_phoneico.setPixmap(im_correct)
         else:
@@ -59,7 +59,7 @@ def run(curr_wid,MW):
     def fun_email():
         string = curr_wid.le_email.text().strip()
         global b_email
-        b_email = validation.validEmail(string)
+        b_email = validEmail(string)
         if b_email:
             curr_wid.lb_emailico.setPixmap(im_correct)
         else:
@@ -68,7 +68,7 @@ def run(curr_wid,MW):
     def fun_recoveryhint():
         string = curr_wid.le_recoveryhint.text().strip()
         global b_recoveryhint
-        b_recoveryhint = validation.validRecoveryhint(string)
+        b_recoveryhint = validRecoveryhint(string)
         if b_recoveryhint:
             curr_wid.lb_recoveryhintico.setPixmap(im_correct)
         else:
@@ -85,7 +85,7 @@ def run(curr_wid,MW):
         curr_wid.le_adminusername.setText('')
         curr_wid.le_adminpassword.setText('')
 
-        from code.images import im_enter
+
         curr_wid.lb_nameico.setPixmap(im_enter)
         curr_wid.lb_usernameico.setPixmap(im_enter)
         curr_wid.lb_passwordico.setPixmap(im_enter)
@@ -94,6 +94,8 @@ def run(curr_wid,MW):
         curr_wid.lb_emailico.setPixmap(im_enter)
         curr_wid.lb_recoveryhintico.setPixmap(im_enter)
         curr_wid.lb_admindetailsico.setPixmap(im_enter)
+
+    reset()
 
     def collect(myc):
         in_name = curr_wid.le_name.text().strip()
@@ -105,7 +107,7 @@ def run(curr_wid,MW):
 
         query1 = {'username': in_username}
         if bool(myc.find_one(query1)):
-            raise errors.AlreadyExistsError('Username already exists ')
+            raise AlreadyExistsError('Username already exists ')
 
         data = {'name': in_name,
                 'username': in_username,
@@ -133,23 +135,23 @@ def run(curr_wid,MW):
                     if all([b_name, b_username, b_password, b_confirmpassword, b_phone, b_email, b_recoveryhint]):
                         collect(myc.logdatabase.users)
                     else:
-                        raise errors.WrongDetailsError
+                        raise WrongDetailsError
                 else:
-                    raise errors.WrongPasswordError
+                    raise WrongPasswordError
             else:
-                raise errors.NotFoundError
+                raise NotFoundError
 
         except ServerSelectionTimeoutError:
             curr_wid.lb_warning.setText('Network Error')
-        except errors.WrongPasswordError:
+        except WrongPasswordError:
             curr_wid.lb_warning.setText('Invalid Admin Password')
             curr_wid.lb_admindetailsico.setPixmap(im_wrong)
-        except errors.NotFoundError:
+        except NotFoundError:
             curr_wid.lb_warning.setText('Invalid Admin Username')
             curr_wid.lb_admindetailsico.setPixmap(im_wrong)
-        except errors.WrongDetailsError:
+        except WrongDetailsError:
             curr_wid.lb_warning.setText('Wrong Details')
-        except errors.AlreadyExistsError as err:
+        except AlreadyExistsError as err:
             curr_wid.lb_warning.setText(str(err))
 
     curr_wid.le_name.textChanged.connect(fun_name)

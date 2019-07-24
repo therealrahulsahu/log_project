@@ -423,15 +423,6 @@ class Ui_Form(object):
         self.pushbt_submit.setText(_translate("Form", "Submit"))
 
     def myaction(self, Form):
-        from code.images import im_enter
-        self.lb_nameico.setPixmap(im_enter)
-        self.lb_usernameico.setPixmap(im_enter)
-        self.lb_passwordico.setPixmap(im_enter)
-        self.lb_confirmpasswordico.setPixmap(im_enter)
-        self.lb_phoneico.setPixmap(im_enter)
-        self.lb_emailico.setPixmap(im_enter)
-        self.lb_recoveryhintico.setPixmap(im_enter)
-        self.lb_admindetailsico.setPixmap(im_enter)
 
         onlyint = QtGui.QIntValidator()
         self.le_phone.setValidator(onlyint)

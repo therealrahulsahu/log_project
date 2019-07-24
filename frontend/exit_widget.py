@@ -148,6 +148,7 @@ class Ui_Form(object):
         self.pushbt_mark.setEnabled(False)
         self.combo_name.setMaxCount(5)
 
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

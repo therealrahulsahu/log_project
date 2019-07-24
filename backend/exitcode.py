@@ -1,4 +1,4 @@
-from code.backend import errors
+from errors import NotFoundError
 from datetime import datetime
 index = []
 
@@ -41,12 +41,12 @@ def run(curr_wid, MW):
                 index = indexing(data)
                 curr_wid.pushbt_mark.setEnabled(True)
             else:
-                raise errors.NotFoundError
+                raise NotFoundError
         except ServerSelectionTimeoutError:
             curr_wid.pushbt_mark.setEnabled(False)
             curr_wid.lb_warning.setText('Network Error')
             index = []
-        except errors.NotFoundError:
+        except NotFoundError:
             curr_wid.pushbt_mark.setEnabled(False)
             curr_wid.lb_warning.setText('Document Not Found')
             index = []

@@ -1,8 +1,8 @@
 from PyQt5 import QtWidgets
-from code.frontend import (login_widget, signup_widget, forget_widget, entry_widget, exit_widget, show_widget)
-from code.backend import (signupcode, forgetcode, logincode, entrycode, exitcode, showcode)
-from code.images import ic_insert_table
-from code.mongo_conn import myc
+from frontend import (login_widget, signup_widget, forget_widget, entry_widget, exit_widget, show_widget)
+from backend import (signupcode, forgetcode, logincode, entrycode, exitcode, showcode)
+from mongo_conn import myc
+from images import ic_insert_table
 import sys
 
 
@@ -30,17 +30,17 @@ class MyWindow(QtWidgets.QMainWindow):
 
     def forget_wid(self):
         form_forget = QtWidgets.QWidget()
-        forget_ui = forget_widget.Ui_Form()
+        forget_ui = forget_widget()
         forget_ui.setupUi(form_forget)
-        forgetcode.run(forget_ui, self)
+        forgetcode(forget_ui, self)
         self.setCentralWidget(form_forget)
         forget_ui.pushbt_back.clicked.connect(self.login_wid)
 
     def signup_wid(self):
         form_signup = QtWidgets.QWidget()
-        signup_ui = signup_widget.Ui_Form()
+        signup_ui = signup_widget()
         signup_ui.setupUi(form_signup)
-        signupcode.run(signup_ui, self)
+        signupcode(signup_ui, self)
         self.setCentralWidget(form_signup)
         signup_ui.pushbt_back.clicked.connect(self.login_wid)
 
@@ -52,19 +52,19 @@ class MyWindow(QtWidgets.QMainWindow):
         tab_widget = QtWidgets.QTabWidget()
 
         entry_tab = QtWidgets.QWidget()
-        form1 = entry_widget.Ui_Form()
+        form1 = entry_widget()
         form1.setupUi(entry_tab)
-        entrycode.run(form1, self)
+        entrycode(form1, self)
 
         exit_tab = QtWidgets.QWidget()
-        form2 = exit_widget.Ui_Form()
+        form2 = exit_widget()
         form2.setupUi(exit_tab)
-        exitcode.run(form2, self)
+        exitcode(form2, self)
 
         show_tab = QtWidgets.QWidget()
-        form3 = show_widget.Ui_Form()
+        form3 = show_widget()
         form3.setupUi(show_tab)
-        showcode.run(form3, self)
+        showcode(form3, self)
 
         tab_widget.addTab(entry_tab, 'Entry')
         tab_widget.addTab(exit_tab, 'Exit')
@@ -79,9 +79,9 @@ class MyWindow(QtWidgets.QMainWindow):
         self.logged_user = ''
 
         form_login = QtWidgets.QWidget()
-        login_ui = login_widget.Ui_Form()
+        login_ui = login_widget()
         login_ui.setupUi(form_login)
-        logincode.run(login_ui, self)
+        logincode(login_ui, self)
 
         self.setCentralWidget(form_login)
 

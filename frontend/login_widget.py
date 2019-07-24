@@ -1,12 +1,5 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'login_widget.ui'
-#
-# Created by: PyQt5 UI code generator 5.9.2
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -164,11 +157,8 @@ class Ui_Form(object):
         self.pushbt_signup.setText(_translate("Form", "Sign Up"))
 
     def myaction(self, Form):
-        from code.images import ic_insert_table
-        from code.images import im_enter
-        Form.setWindowIcon(ic_insert_table)
+        pass
 
-        self.lb_loginico.setPixmap(im_enter)    # object name of lb_ has to be changed
 
 
 if __name__ == "__main__":

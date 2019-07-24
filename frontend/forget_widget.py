@@ -1,12 +1,5 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'forget_widget.ui'
-#
-# Created by: PyQt5 UI code generator 5.9.2
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -190,8 +183,8 @@ class Ui_Form(object):
         self.pushbt_fetch.setText(_translate("Form", "Fetch"))
 
     def myaction(self, Form):
-        from code.images import im_enter
-        self.lb_usernameico.setPixmap(im_enter)
+        pass
+
 
 
 if __name__ == "__main__":

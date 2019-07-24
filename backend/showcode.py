@@ -1,5 +1,4 @@
-from code.backend import errors
-from datetime import datetime
+from errors import NotFoundError
 
 
 def to_html(data):
@@ -35,12 +34,12 @@ def run(curr_wid, MW):
             if data:
                 curr_wid.tb_data.setText(to_html(data))
             else:
-                raise errors.NotFoundError
+                raise NotFoundError
         except ServerSelectionTimeoutError:
             curr_wid.tb_data.setText('<h4>Network Error</h4>')
         except ValueError:
             curr_wid.tb_data.setText('<h4>Invalid No.</h4>')
-        except errors.NotFoundError:
+        except NotFoundError:
             curr_wid.tb_data.setText('<h4>No Data Found</h4>')
 
     curr_wid.pushbt_fetch.clicked.connect(fetch)
