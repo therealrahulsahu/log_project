@@ -98,4 +98,7 @@ if __name__ == '__main__':
     win = MyWindow()
     win.show()
 
-    sys.exit(app.exec_())
+    end = app.exec_()
+    if not end:
+        win.myc.close()
+        sys.exit(end)
