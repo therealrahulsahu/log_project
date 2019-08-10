@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a5c569b-b92f-4d5e-9314-abbc0b48b23b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/networkcode.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/network_widget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/exclamation5.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uis/network_widget.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/entrycode.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/entrycode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/exitcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/exitcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/forgetcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/forgetcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logincode.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logincode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/showcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/showcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/signupcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/signupcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/images/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mongo_conn/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mongo_conn/__init__.py" afterDir="false" />
     </list>
@@ -15,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Setup Script" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -34,9 +47,10 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,15 +61,16 @@
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Rahul Code\python\pycham\log_project\frontend" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Rahul Code\python\pycham\log_project\frontend" />
       <recent name="D:\Rahul Code\python\pycham\log_project" />
       <recent name="D:\Rahul Code\python\pycham\log_project\backend" />
       <recent name="D:\Rahul Code\python\pycham\log_project\backend\errors" />
       <recent name="D:\Rahul Code\python\pycham\log_project\uis" />
-      <recent name="D:\Rahul Code\python\pycham\log_project\code\frontend" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Rahul Code\python\pycham\log_project\images" />
+      <recent name="D:\Rahul Code\python\pycham\log_project\frontend" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -227,8 +242,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.login_widget" />
         <item itemvalue="Python.signup_widget" />
+        <item itemvalue="Python.login_widget" />
         <item itemvalue="Python.show_widget" />
         <item itemvalue="Python.forget_widget" />
         <item itemvalue="Python.exit_widget (1)" />
@@ -255,7 +270,11 @@
       <workItem from="1564235650253" duration="626000" />
       <workItem from="1564238209250" duration="15000" />
       <workItem from="1564304183321" duration="485000" />
-      <workItem from="1564499643998" duration="3444000" />
+      <workItem from="1564499643998" duration="3641000" />
+      <workItem from="1564764783117" duration="776000" />
+      <workItem from="1564832149805" duration="83000" />
+      <workItem from="1565412519167" duration="13000" />
+      <workItem from="1565412551215" duration="14130000" />
     </task>
     <task id="LOCAL-00001" summary="new load">
       <created>1563658548551</created>
@@ -320,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564235767426</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="phase 1 final">
+      <created>1564504328768</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1564504328768</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,9 +377,9 @@
     <SUITE FILE_PATH="coverage/log_project$exit_widget__1_.coverage" NAME="exit_widget (1) Coverage Results" MODIFIED="1563982334101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
     <SUITE FILE_PATH="coverage/log_project$forget_widget.coverage" NAME="forget_widget Coverage Results" MODIFIED="1563982386484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
     <SUITE FILE_PATH="coverage/log_project$entry_widget.coverage" NAME="entry_widget Coverage Results" MODIFIED="1563660916165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code/frontend" />
-    <SUITE FILE_PATH="coverage/log_project$signup_widget.coverage" NAME="signup_widget Coverage Results" MODIFIED="1563982438331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
     <SUITE FILE_PATH="coverage/log_project$entry_widget__1_.coverage" NAME="entry_widget (1) Coverage Results" MODIFIED="1563982306112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
-    <SUITE FILE_PATH="coverage/log_project$RUN_Project.coverage" NAME="RUN Project Coverage Results" MODIFIED="1564504219473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/log_project$signup_widget.coverage" NAME="signup_widget Coverage Results" MODIFIED="1564765090723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
+    <SUITE FILE_PATH="coverage/log_project$RUN_Project.coverage" NAME="RUN Project Coverage Results" MODIFIED="1565430029689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/log_project$exit_widget.coverage" NAME="exit_widget Coverage Results" MODIFIED="1563832955401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code/frontend" />
     <SUITE FILE_PATH="coverage/log_project$index.coverage" NAME="index Coverage Results" MODIFIED="1563657636536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

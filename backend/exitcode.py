@@ -12,7 +12,7 @@ def run(curr_wid, MW):
 
     def mark():
         i = curr_wid.combo_name.currentIndex()
-        from pymongo.errors import ServerSelectionTimeoutError
+        from pymongo.errors import AutoReconnect
         global index
         result = index[i]
         myc = MW.myc
@@ -22,7 +22,7 @@ def run(curr_wid, MW):
             curr_wid.pushbt_mark.setEnabled(False)
             curr_wid.lb_warning.setText('Done')
             curr_wid.combo_name.clear()
-        except ServerSelectionTimeoutError:
+        except AutoReconnect:
             curr_wid.lb_warning.setText('Network Error')
 
     def name():
@@ -33,7 +33,7 @@ def run(curr_wid, MW):
         filter_data = {'_id': 1, 'name': 1, 'email': 1}
         myc = MW.myc
         myc = eval('myc.logdatabase.{}_entry'.format(MW.logged_user))
-        from pymongo.errors import ServerSelectionTimeoutError
+        from pymongo.errors import AutoReconnect
         try:
             data = list(myc.find(query, filter_data).limit(5))
             if data:
@@ -42,7 +42,7 @@ def run(curr_wid, MW):
                 curr_wid.pushbt_mark.setEnabled(True)
             else:
                 raise NotFoundError
-        except ServerSelectionTimeoutError:
+        except AutoReconnect:
             curr_wid.pushbt_mark.setEnabled(False)
             curr_wid.lb_warning.setText('Network Error')
             index = []

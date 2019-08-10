@@ -27,7 +27,7 @@ def run(curr_wid, MW):
         filter_data = {'_id': 0}
         myc = MW.myc
         myc = eval('myc.logdatabase.{}_entry'.format(MW.logged_user))
-        from pymongo.errors import ServerSelectionTimeoutError
+        from pymongo.errors import AutoReconnect
         try:
             count = int(count)
             data = list(myc.find(query, filter_data).limit(count))
@@ -35,7 +35,7 @@ def run(curr_wid, MW):
                 curr_wid.tb_data.setText(to_html(data))
             else:
                 raise NotFoundError
-        except ServerSelectionTimeoutError:
+        except AutoReconnect:
             curr_wid.tb_data.setText('<h4>Network Error</h4>')
         except ValueError:
             curr_wid.tb_data.setText('<h4>Invalid No.</h4>')

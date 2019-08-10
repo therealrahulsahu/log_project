@@ -84,7 +84,7 @@ def run(curr_wid,MW):
         curr_wid.le_recoveryhint.setText('')
         curr_wid.le_adminusername.setText('')
         curr_wid.le_adminpassword.setText('')
-
+        curr_wid.lb_warning.setText('Welcome')
 
         curr_wid.lb_nameico.setPixmap(im_enter)
         curr_wid.lb_usernameico.setPixmap(im_enter)
@@ -122,7 +122,7 @@ def run(curr_wid,MW):
         MW.login_wid()
 
     def submit():
-        from pymongo.errors import ServerSelectionTimeoutError
+        from pymongo.errors import AutoReconnect
         in_adminusername = curr_wid.le_adminusername.text().strip()
         in_adminpassword = curr_wid.le_adminpassword.text().strip()
         query = {'username': in_adminusername}
@@ -141,7 +141,7 @@ def run(curr_wid,MW):
             else:
                 raise NotFoundError
 
-        except ServerSelectionTimeoutError:
+        except AutoReconnect:
             curr_wid.lb_warning.setText('Network Error')
         except WrongPasswordError:
             curr_wid.lb_warning.setText('Invalid Admin Password')

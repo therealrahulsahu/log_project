@@ -5,13 +5,14 @@ from images import im_correct, im_enter, im_wrong
 
 def run(curr_wid, MW):
     curr_wid.lb_usernameico.setPixmap(im_enter)
+
     def fetch():
         username = curr_wid.le_username.text().strip()
         email = curr_wid.le_email.text().strip()
         recoveryhint = curr_wid.le_recoveryhint.text().strip()
 
         myc = MW.myc
-        from pymongo.errors import ServerSelectionTimeoutError
+        from pymongo.errors import AutoReconnect
         query = {'username': username}
         try:
             result = myc.logdatabase.users.find_one(query)
@@ -23,7 +24,7 @@ def run(curr_wid, MW):
             else:
                 raise WrongUsernameError
 
-        except ServerSelectionTimeoutError:
+        except AutoReconnect:
             curr_wid.lb_warning.setText('Network Error')
         except WrongEmailError as e:
             curr_wid.lb_warning.setText(str(e))

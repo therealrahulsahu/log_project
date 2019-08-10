@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets
-from frontend import (login_widget, signup_widget, forget_widget, entry_widget, exit_widget, show_widget)
-from backend import (signupcode, forgetcode, logincode, entrycode, exitcode, showcode)
-from mongo_conn import myc
+from frontend import *
+from backend import *
 from images import ic_insert_table
 import sys
 
@@ -12,7 +11,6 @@ class MyWindow(QtWidgets.QMainWindow):
         self.resize(1120, 630)
         self.setWindowTitle('Entry LOG')
         self.setWindowIcon(ic_insert_table)
-        self.myc = myc
         self.logged_user = ''
 
         self.mn_bar()
@@ -88,8 +86,17 @@ class MyWindow(QtWidgets.QMainWindow):
         login_ui.pushbt_signup.clicked.connect(self.signup_wid)
         login_ui.pushbt_forget.clicked.connect(self.forget_wid)
 
+    def connect(self, on_widget):
+        self.menu_bar.setVisible(False)
+
+        form_network = QtWidgets.QWidget()
+        network_ui = network_widget()
+        network_ui.setupUi(form_network)
+        networkcode(network_ui, self, on_widget)
+        self.setCentralWidget(form_network)
+
     def start(self):
-        self.login_wid()
+        self.connect(self.login_wid)
 
 
 if __name__ == '__main__':
@@ -100,5 +107,9 @@ if __name__ == '__main__':
 
     end = app.exec_()
     if not end:
-        win.myc.close()
+        try:
+            win.myc.close()
+        except AttributeError:
+            pass
+
         sys.exit(end)

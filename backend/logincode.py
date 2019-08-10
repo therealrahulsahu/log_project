@@ -1,5 +1,5 @@
-from pymongo.errors import ServerSelectionTimeoutError
-from images import im_wrong, im_correct, im_enter
+from pymongo.errors import AutoReconnect
+from images import im_wrong, im_correct, im_enter, im_loading, im_net_error
 from errors import NotFoundError
 
 
@@ -12,6 +12,7 @@ def run(curr_wid, MW):
         myc = MW.myc
         query = {'username': in_username}
         try:
+            curr_wid.lb_loginico.setPixmap(im_loading)
             result = myc.logdatabase.users.find_one(query)
             if bool(result):
                 if result['password'] == in_password:
@@ -22,8 +23,10 @@ def run(curr_wid, MW):
                     raise NotFoundError
             else:
                 raise NotFoundError
-        except(NotFoundError, ServerSelectionTimeoutError):
+        except NotFoundError:
             curr_wid.lb_loginico.setPixmap(im_wrong)
+        except AutoReconnect:
+            curr_wid.lb_loginico.setPixmap(im_net_error)
 
     curr_wid.pushbt_login.clicked.connect(login)
 

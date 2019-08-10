@@ -66,8 +66,7 @@ def run(curr_wid, MW):
         search_data1 = {'email': email,
                 'in_status': True}
         search_data2 = {'phone': phone,
-                'in_status': True
-        }
+                'in_status': True}
         data = {'name': name,
                 'email': email,
                 'phone': phone,
@@ -76,7 +75,7 @@ def run(curr_wid, MW):
                 'exit_time': exit_time,
                 'in_status': True}
 
-        from pymongo.errors import ServerSelectionTimeoutError
+        from pymongo.errors import AutoReconnect
         myc = MW.myc.logdatabase
         myc = eval('myc.{}_entry'.format(MW.logged_user))
         try:
@@ -89,7 +88,7 @@ def run(curr_wid, MW):
                     curr_wid.lb_warning.setText('Entry Done')
             else:
                 raise WrongDetailsError
-        except ServerSelectionTimeoutError:
+        except AutoReconnect:
             curr_wid.lb_warning.setText('Network Error')
         except PersonAlreadyInError:
             curr_wid.lb_warning.setText('Person Already Inside')
