@@ -10,8 +10,7 @@ def run(curr_wid, MW, on_widget):
         try:
             curr_wid.lb_warning.setText('Connecting...')
             curr_wid.pushbt_retry.setEnabled(False)
-            myc = MongoClient('mongodb+srv://therealrahulsahu:rahulsahu1_@'
-                              'democluster-2u6fb.gcp.mongodb.net/test?retryWrites=true',
+            myc = MongoClient('mongodb://localhost:27017/',
                               serverSelectionTimeoutMS=5000, connectTimeoutMS=5000, socketTimeoutMS=5000)
             MW.myc = myc
             on_widget()
